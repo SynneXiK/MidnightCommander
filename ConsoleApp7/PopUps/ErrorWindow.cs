@@ -10,8 +10,8 @@ namespace ConsoleApp7.PopUps
 {
 	public class ErrorWindow : AppWindows
 	{
-		string errName;
-		int Width;
+        private string errName;
+		private int Width;
 
 		public ErrorWindow(Application application)
 		{
@@ -22,6 +22,7 @@ namespace ConsoleApp7.PopUps
 		{
 			if(input.Length % 2 == 1)
 				errName = input + " ";
+
 			this.errName = input;
 			this.Width = Math.Max(errName.Length + 2, 18);
 			this.Draw();

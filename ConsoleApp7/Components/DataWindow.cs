@@ -45,6 +45,7 @@ namespace ConsoleApp7.Components
         {
 
 			string? input = info.Key.ToString();
+
             if (input.Contains('F') && input.Length == 2 || input == "F10")
                 this.AddDialog(info);
 
@@ -70,7 +71,6 @@ namespace ConsoleApp7.Components
         {
             Button button = new Button(Table[Selected], Table[(Selected + 1) % 2], this.Application);
 			this.Application.AddWindow(button);
-			button.Application = this.Application;
 			button.HandleKey(info);
 
 		}

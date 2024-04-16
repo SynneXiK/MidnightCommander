@@ -38,126 +38,125 @@ namespace ConsoleApp7.Components
 
         public Table(int left)
         {
-            this.errorWindow = new ErrorWindow(application);
+            this.errorWindow = new ErrorWindow(this.application); // aplikace nebude null, vždy jí předávám
 			this.Left = left;
 			list = files.GetData(this.path);
 		}
         public override void HandleKey(ConsoleKeyInfo info)
         {
 			ChosenDirectory = list[Selected].Name;
-			if (info.Key == ConsoleKey.UpArrow)
+            switch(info.Key)
             {
-                if (Selected <= 0)
+                case ConsoleKey.UpArrow:
+                    if (Selected <= 0)
+                        return;
+
+                    Selected--;
+
+                    if (Selected == offset - 1)
+                        offset--;
+
+                    ChosenDirectory = list[Selected].Name;
                     return;
 
-                Selected--;
+                case ConsoleKey.DownArrow:
+                    if (Selected >= list.Count - 1)
+                        return;
 
-                if (Selected == offset - 1)
-                    offset--;
+                    Selected++;
 
-				ChosenDirectory = list[Selected].Name;
+                    if (Selected == offset + Math.Min(Count, this.list.Count))
+                        offset++;
 
-			}
-            else if (info.Key == ConsoleKey.DownArrow)
-            {
-                if (Selected >= list.Count - 1)
-				return;
+                    ChosenDirectory = list[Selected].Name;
 
-                Selected++;
+                    return;
+                case ConsoleKey.End:
+                    Selected = list.Count - 1;
 
-                if (Selected == offset + Math.Min(Count, this.list.Count))
-                    offset++;
-
-				ChosenDirectory = list[Selected].Name;
-
-			}
-            else if (info.Key == ConsoleKey.End)
-            {
-                
-                
-                Selected = list.Count - 1;
-
-                if (offset <= list.Count - 1 && Selected >= Console.WindowHeight - 3)
-                    offset = list.Count - Count;
-            }
-            else if (info.Key == ConsoleKey.Home)
-            {
-                Selected = 0;
-                offset = 0;
-            }
-            else if (info.Key == ConsoleKey.Enter) 
-            {
-                Selected = 0;
-                if (ChosenDirectory == "..") 
-                {
-                    if (path.Length <= 3)
+                    if (offset <= list.Count - 1 && Selected >= Console.WindowHeight - 3)
+                        offset = list.Count - Count;
+                    return;
+                case ConsoleKey.Home:
+                    Selected = 0;
+                    offset = 0;
+                    return;
+                case ConsoleKey.Enter:
+                    Selected = 0;
+                    if (ChosenDirectory == "..")
                     {
-                        path = "";
+                        if (path.Length <= 3) // disk
+                        {
+                            path = "";
+                        }
+                        else
+                        {
+                            DirectoryInfo newdir = new DirectoryInfo(path);
+                            path = newdir.Parent.FullName;
+                        }
+
+                        list = files.GetData(this.path);
+                        return;
+
+                    }
+                    if (path.Length < 3)
+                    {
+
+                        try
+                        {
+                            Directory.GetDirectories(path + ChosenDirectory);
+                            Directory.GetFiles(path + ChosenDirectory);
+
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            application.AddWindow(errorWindow);
+                            errorWindow.GetError("Access denied!");
+                            return;
+                        }
+                        catch (Exception)
+                        {
+                            application.AddWindow(errorWindow);
+                            errorWindow.GetError("File or Folder doesnt exist!");
+                            return;
+                        }
+
+
+                        path += ChosenDirectory;
                     }
                     else
                     {
-                        DirectoryInfo newdir = new DirectoryInfo(path);
-                        path = newdir.Parent.FullName;
+
+                        try
+                        {
+
+                            Directory.GetDirectories(Path.Combine(path, ChosenDirectory));
+                            Directory.GetFiles(Path.Combine(path, ChosenDirectory));
+
+                        }
+                        catch (UnauthorizedAccessException)
+                        {
+                            application.AddWindow(errorWindow);
+                            errorWindow.GetError("Access denied!");
+                            return;
+                        }
+                        catch (Exception)
+                        {
+                            application.AddWindow(errorWindow);
+                            errorWindow.GetError("Unexpected error!");
+                            return;
+                        }
+
+                        Path.Combine(path, ChosenDirectory);
+
+
                     }
-                    
-					list = files.GetData(this.path);
+                    list = files.GetData(this.path);
                     return;
-                    
-                }
-                if (path.Length < 3)
-                {
-
-                    try
-                    {
-                        Directory.GetDirectories(path + ChosenDirectory);
-                        Directory.GetFiles(path + ChosenDirectory);
-                        
-                    }
-                    catch (UnauthorizedAccessException)
-                    {
-                        application.AddWindow(errorWindow);
-                        errorWindow.GetError("Access denied!");
-						return;
-					}
-                    catch (Exception)
-                    {
-                        application.AddWindow(errorWindow);
-                        errorWindow.GetError("File or Folder doesnt exist!");
-						return;
-					}
-                    
-                
-					path += ChosenDirectory;
-                }
-                else
-                {
-
-					try
-                    { 
-						
-						Directory.GetDirectories(path + @"\" + ChosenDirectory);
-						Directory.GetFiles(path + @"\" + ChosenDirectory);
-                        
-					}
-					catch (UnauthorizedAccessException)
-					{
-						application.AddWindow(errorWindow);
-						errorWindow.GetError("Access denied!");
-						return;
-					}
-					catch (Exception)
-					{
-						application.AddWindow(errorWindow);
-						errorWindow.GetError("Unexpected error!");
-						return;
-					}
-                    
-					path += @"\"+ChosenDirectory;
 
 
-                }
-				list = files.GetData(this.path);
-			}
+            }
+
 		}
 
 		public override void Refresh()
@@ -170,7 +169,6 @@ namespace ConsoleApp7.Components
 			DrawOutline();
 
             int Top = 1;
-            string emptyLine = "";
             for (int i = offset; i < offset + Math.Min(Count, this.list.Count); i++)
             {
                 if (i == Selected)
@@ -187,7 +185,7 @@ namespace ConsoleApp7.Components
             for (int i = list.Count + 1; i < this.Count + 1; i++) // Přepisování
             {
                 Console.SetCursorPosition(this.Left, i);
-                Console.Write($"{emptyLine.PadRight(37)}│{emptyLine.PadRight(6)}│{emptyLine.PadRight(13)}│");
+                Console.Write($"{string.Empty.PadRight(37)}│{string.Empty.PadRight(6)}│{string.Empty.PadRight(13)}│");
 
 			}
 			DrawBottom();
@@ -197,18 +195,17 @@ namespace ConsoleApp7.Components
         }
         public void DrawLine(string Name, long? Size, DateTime UpdateTime)
         {
-            string empty = "";
             if (Name.Length >= 37)
             {
                 Name = Name.Substring(0, 34)+"..";
             }
-            Console.Write($"{Name}{empty.PadRight(37 - Name.Length)}");
-            Console.Write($"│{SizeConverter(Size)}{empty.PadRight(6-SizeConverter(Size).Length)}│"); // -1 kvůli mezeře na začátku
+            Console.Write($"{Name}{string.Empty.PadRight(37 - Name.Length)}");
+            Console.Write($"│{SizeConverter(Size)}{string.Empty.PadRight(6-SizeConverter(Size).Length)}│"); // -1 kvůli mezeře na začátku
             Console.Write($"{UpdateTime.Date.ToString("dd MMM HH:mm").PadRight(13)}");  
         }
 		private string SizeConverter(long? input)
 		{
-			string[] Sizes = new string[] { "b", "kb", "Mb", "Gb", "Tb" };
+			string[] Sizes = { "b", "kb", "Mb", "Gb", "Tb" };
 			int i = 0;
             if (input == null)
             {

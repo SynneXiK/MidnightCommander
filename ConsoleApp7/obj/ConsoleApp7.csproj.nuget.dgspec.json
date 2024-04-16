@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "X:\\Programování\\Ostatni\\MC\\Commander_Finale3\\ConsoleApp7\\ConsoleApp7.csproj": {}
+    "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\ConsoleApp7.csproj": {}
   },
   "projects": {
-    "X:\\Programování\\Ostatni\\MC\\Commander_Finale3\\ConsoleApp7\\ConsoleApp7.csproj": {
+    "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\ConsoleApp7.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "X:\\Programování\\Ostatni\\MC\\Commander_Finale3\\ConsoleApp7\\ConsoleApp7.csproj",
+        "projectUniqueName": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\ConsoleApp7.csproj",
         "projectName": "ConsoleApp7",
-        "projectPath": "X:\\Programování\\Ostatni\\MC\\Commander_Finale3\\ConsoleApp7\\ConsoleApp7.csproj",
+        "projectPath": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\ConsoleApp7.csproj",
         "packagesPath": "C:\\Users\\gazikmarcel\\.nuget\\packages\\",
-        "outputPath": "X:\\Programování\\Ostatni\\MC\\Commander_Finale3\\ConsoleApp7\\obj\\",
+        "outputPath": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

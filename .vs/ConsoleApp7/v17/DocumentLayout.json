@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|c:\\users\\gazikmarcel\\desktop\\midnightcommander\\consoleapp7\\components\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|solutionrelative:consoleapp7\\components\\table.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|c:\\users\\gazikmarcel\\desktop\\midnightcommander\\consoleapp7\\popups\\errorwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|solutionrelative:consoleapp7\\popups\\errorwindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|c:\\users\\gazikmarcel\\desktop\\midnightcommander\\consoleapp7\\components\\appwindows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|solutionrelative:consoleapp7\\components\\appwindows.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|c:\\users\\gazikmarcel\\desktop\\midnightcommander\\consoleapp7\\components\\datawindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{931D350A-5044-4554-AA31-B1F0C0A5F651}|ConsoleApp7\\ConsoleApp7.csproj|solutionrelative:consoleapp7\\components\\datawindow.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorWindow.cs",
+              "DocumentMoniker": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\PopUps\\ErrorWindow.cs",
+              "RelativeDocumentMoniker": "ConsoleApp7\\PopUps\\ErrorWindow.cs",
+              "ToolTip": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\PopUps\\ErrorWindow.cs",
+              "RelativeToolTip": "ConsoleApp7\\PopUps\\ErrorWindow.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBwAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T07:30:09.361Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Table.cs",
+              "DocumentMoniker": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\Table.cs",
+              "RelativeDocumentMoniker": "ConsoleApp7\\Components\\Table.cs",
+              "ToolTip": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\Table.cs",
+              "RelativeToolTip": "ConsoleApp7\\Components\\Table.cs",
+              "ViewState": "AQIAALQAAAAAAAAAAAAgwM8AAAA0AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T07:24:57.129Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "DataWindow.cs",
+              "DocumentMoniker": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\DataWindow.cs",
+              "RelativeDocumentMoniker": "ConsoleApp7\\Components\\DataWindow.cs",
+              "ToolTip": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\DataWindow.cs",
+              "RelativeToolTip": "ConsoleApp7\\Components\\DataWindow.cs",
+              "ViewState": "AQIAABwAAAAAAAAAAAAcwEkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T07:21:38.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppWindows.cs",
+              "DocumentMoniker": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\AppWindows.cs",
+              "RelativeDocumentMoniker": "ConsoleApp7\\Components\\AppWindows.cs",
+              "ToolTip": "C:\\Users\\gazikmarcel\\Desktop\\MidnightCommander\\ConsoleApp7\\Components\\AppWindows.cs",
+              "RelativeToolTip": "ConsoleApp7\\Components\\AppWindows.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAgAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-16T07:21:30.606Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
