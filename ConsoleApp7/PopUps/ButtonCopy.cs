@@ -1,4 +1,5 @@
-﻿using ConsoleApp7.PopUps;
+﻿using ConsoleApp7.Helpers;
+using ConsoleApp7.PopUps;
 using ConsoleApp7.Services;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp7.Buttons
 {
-	internal class ButtonCopy : ComponentButton
+    internal class ButtonCopy : ComponentButton
 	{
 		public int Selected = 0;
 		public Application application { get; set; }
@@ -84,18 +85,22 @@ namespace ConsoleApp7.Buttons
 		{
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.BackgroundColor = ConsoleColor.Red;
-			path = TextLength(path);
-			path2 = TextLength(path2);
+			path = ButtonHelper.TextLength(path);
+			path2 = ButtonHelper.TextLength(path2);
 
-			DrawShell();
+			UIService.DrawButtonShell();
 
-			string empty = "";
+			
 			int top = 11;
+			for (int i = 11; i < 17; i++) // top
+			{
+
+			}
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│   COPY Function".PadRight(18) + " │");
 			top++;
 			Console.SetCursorPosition(50, top);
-			Console.Write($"│{empty.PadRight(18)}│");
+			Console.Write($"│{string.Empty.PadRight(18)}│");
 			top++;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│ Copy:".PadRight(18) + " │");
@@ -134,17 +139,13 @@ namespace ConsoleApp7.Buttons
 			Console.Write("│Cancel│");
 			Console.SetCursorPosition(61, top + 3);
 			Console.Write("└──────┘");
-			Console.ForegroundColor = ConsoleColor.White;
-			Console.BackgroundColor = ConsoleColor.DarkBlue;
+			ColorHelper.DefaultBackground();
 		}
 		public void HandleKey(ConsoleKeyInfo info, string path, string path2)
 		{
 			if (info.Key == ConsoleKey.Tab)
 			{
-				if (Selected >= 1)
-					Selected = 0;
-				else
-					Selected++;
+				Selected = Selected >= 1 ? 0 : Selected++;
 			}
 			if (info.Key == ConsoleKey.Enter)
 			{
@@ -158,32 +159,6 @@ namespace ConsoleApp7.Buttons
 
 				Selected = 0;
 			}
-		}
-		public string TextLength(string input)
-		{
-			if (input.Length >= 18)
-				input = @"..\" + input.Substring(input.Length - 13, 13);
-
-			return input;
-		}
-		public void DrawShell()
-		{
-			string empty = "";
-			int top = 10;
-			Console.SetCursorPosition(50, top);
-			Console.Write("┌──────────────────┐"); // Tabulka 20x40
-			top++;
-
-
-			for (int i = 0; i < 11; i++)
-			{
-				Console.SetCursorPosition(50, top);
-				Console.Write($"│{empty.PadRight(18)}│");
-				top++;
-			}
-
-			Console.SetCursorPosition(50, top);
-			Console.Write("└──────────────────┘");
 		}
 	}
 }

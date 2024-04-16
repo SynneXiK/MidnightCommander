@@ -1,4 +1,6 @@
 ﻿using ConsoleApp7.PopUps;
+using ConsoleApp7.Services;
+using ConsoleApp7.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp7.Buttons
 {
-	internal class ButtonCreate : ComponentButton
+	public class ButtonCreate : ComponentButton
 	{
 		public int Selected = 0;
 		public Application application { get; set; }
@@ -19,7 +21,7 @@ namespace ConsoleApp7.Buttons
 			this.ErrorWindow = ErrorWindow;
 		}
 
-		public string Value { get; set; } = "";
+		private string Value = "";
 
 		public void Function(string path, string path2)
 		{
@@ -46,28 +48,23 @@ namespace ConsoleApp7.Buttons
 				application.RemoveWindow();
 			}
 				
-			
-				
-
-			
 		}
 
 		public void Draw(string path, string path2) //└┘┼─┴├┤┬┌┐│
 		{
 			Console.ForegroundColor = ConsoleColor.White;
             Console.BackgroundColor = ConsoleColor.Red;
-            path = TextLength(path);
+            path = ButtonHelper.TextLength(path);
 
-			string empty = "";
 			int top = 11;
-			
-			DrawShell();
+
+			UIService.DrawButtonShell();
 
 			Console.SetCursorPosition(40, top);
 			Console.Write($"│ CREATE Function".PadRight(46) + " │");
 			top++;
 			Console.SetCursorPosition(40, top);
-			Console.Write($"│{empty.PadRight(46)}│");
+			Console.Write($"│{string.Empty.PadRight(46)}│");
 			top++;
 			Console.SetCursorPosition(40, top);
 			Console.Write($"│ CREATE:".PadRight(46) + " │");
@@ -136,10 +133,7 @@ namespace ConsoleApp7.Buttons
 		{
 			if (info.Key == ConsoleKey.Tab)
 			{
-				if (Selected >= 3)
-					Selected = 0;
-				else
-					Selected++;
+				Selected = Selected >= 3 ? 0 : Selected++;
 			}
 			if (info.Key == ConsoleKey.Enter)
 			{
@@ -153,39 +147,13 @@ namespace ConsoleApp7.Buttons
 				Selected = 0;
 				Value = "";
 			}
-			if (Char.IsLetterOrDigit(info.KeyChar) && Selected == 0 || info.KeyChar == '.' && Selected == 0)
+			if ((Char.IsLetterOrDigit(info.KeyChar) || info.KeyChar == '.') && Selected == 0)
 				Value += info.KeyChar;
 
 			if (info.Key == ConsoleKey.Backspace && Selected == 0 && Value.Length > 0)
 				Value = Value.Remove(Value.Length - 1);
 
 			
-		}
-		public string TextLength(string input)
-		{
-			if (input.Length >= 18)
-				input = @"..\" + input.Substring(input.Length - 13, 13);
-
-			return input;
-		}
-		public void DrawShell()
-		{
-			string empty = "";
-			int top = 10;
-			Console.SetCursorPosition(40, top);
-			Console.Write("┌──────────────────────────────────────────────┐"); // Tabulka 20x40
-			top++;
-
-
-			for (int i = 0; i < 8; i++)
-			{
-				Console.SetCursorPosition(40, top);
-				Console.Write($"│{empty.PadRight(46)}│");
-				top++;
-			}
-
-			Console.SetCursorPosition(40, top);
-			Console.Write("└──────────────────────────────────────────────┘");
 		}
 	}	
 }

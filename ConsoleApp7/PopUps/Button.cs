@@ -18,12 +18,12 @@ namespace ConsoleApp7.Buttons
 		public ErrorWindow ErrorWindow;
         public Button(Table Chosen, Table Other, Application application)
 		{
-			this.path = Chosen.path + @"\" + Chosen.ChosenDirectory;
-			this.path2 = Other.path + @"\" + Other.ChosenDirectory;
+			this.path = Path.Combine(Chosen.path, Chosen.ChosenDirectory!);
+			this.path2 = Path.Combine(Other.path, Other.ChosenDirectory!);	
 			this.Application = application;
 			this.ErrorWindow = new ErrorWindow(this.Application);
 			this.Buttons = new List<ComponentButton> { new ButtonFiller(), new ButtonFiller(), new ButtonFiller(), new ButtonFiller(), new ButtonOpenEditor(this.Application, this.ErrorWindow), new ButtonCopy(this.Application, this.ErrorWindow), new ButtonRename(this.Application, this.ErrorWindow), new ButtonCreate(this.Application, this.ErrorWindow), new ButtonDelete(this.Application, this.ErrorWindow), new ButtonFiller(), new ButtonExit(this.Application, this.ErrorWindow) };
-			
+
 		}
 		public override void Draw()
 		{

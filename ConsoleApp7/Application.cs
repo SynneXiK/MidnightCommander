@@ -1,5 +1,6 @@
 ﻿using ConsoleApp7.Buttons;
 using ConsoleApp7.Components;
+using ConsoleApp7.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp7
 {
-	public class Application
+    public class Application
 	{
         public List<AppWindows> windows = new List<AppWindows> {new DataWindow()};
 		public bool Running = true;
@@ -17,8 +18,7 @@ namespace ConsoleApp7
 		{
 			Console.CursorVisible = false;
 			Console.Title = "Midnight Commander";
-			Console.ForegroundColor = ConsoleColor.White;
-			Console.BackgroundColor = ConsoleColor.DarkBlue;
+			ColorHelper.DefaultBackground();
 		}
 		public void Draw()
 		{

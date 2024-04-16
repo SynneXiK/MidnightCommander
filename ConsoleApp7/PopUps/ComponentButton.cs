@@ -12,18 +12,12 @@ namespace ConsoleApp7.Buttons
 	{
 		public ErrorWindow ErrorWindow { get; set; }
 		public Application application { get; set; }
+
+		public void Draw(string path, string path2);
+
+		public void Function(string path, string path2);
+
+		public void HandleKey(ConsoleKeyInfo info, string path, string path2);
 		
-		public void Draw(string path, string path2)
-		{
-
-		}
-		public void Function(string path, string path2)
-		{
-
-		}
-		public void HandleKey(ConsoleKeyInfo info, string path, string path2)
-		{
-
-		}
 	}
 }

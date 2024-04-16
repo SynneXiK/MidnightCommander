@@ -1,4 +1,5 @@
 ﻿using ConsoleApp7.Buttons;
+using ConsoleApp7.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,8 +28,7 @@ namespace ConsoleApp7.Components
 
         public override void Refresh()
         {
-            Console.ForegroundColor = ConsoleColor.White;
-            Console.BackgroundColor = ConsoleColor.DarkBlue;
+            ColorHelper.DefaultBackground();
 			Table[0].application = this.Application;
 			Table[1].application = this.Application;
 			this.Table[Selected].Refresh(); // Zajištuje aby se zobrazili nově vytvořená data okamžitě

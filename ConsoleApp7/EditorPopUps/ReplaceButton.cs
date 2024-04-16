@@ -93,7 +93,7 @@ namespace ConsoleApp7.EditorPopUps
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.BackgroundColor = ConsoleColor.Gray;
 
-			string empty = "";
+			
 			int top = 11;
 
 			DrawShell();
@@ -102,7 +102,7 @@ namespace ConsoleApp7.EditorPopUps
 			Console.Write($"│ Search Function".PadRight(46) + " │");
 			top++;
 			Console.SetCursorPosition(40, top);
-			Console.Write($"│{empty.PadRight(46)}│");
+			Console.Write($"│{string.Empty.PadRight(46)}│");
 			top++;
 			Console.SetCursorPosition(40, top);
 			Console.Write($"│ Replace: ".PadRight(46) + " │");
@@ -273,7 +273,7 @@ namespace ConsoleApp7.EditorPopUps
 		}
 		public void DrawShell()
 		{
-			string empty = "";
+			
 			int top = 10;
 			Console.SetCursorPosition(40, top);
 			Console.Write("┌───────────────────────────────────────────────┐"); // Tabulka 20x40
@@ -283,7 +283,7 @@ namespace ConsoleApp7.EditorPopUps
 			for (int i = 0; i < 14; i++)
 			{
 				Console.SetCursorPosition(40, top);
-				Console.Write($"│{empty.PadRight(47)}│");
+				Console.Write($"│{string.Empty.PadRight(47)}│");
 				top++;
 			}
 

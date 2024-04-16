@@ -12,12 +12,12 @@ namespace ConsoleApp7.PopUps
 		public Application application { get; set; }
 
 		public ErrorWindow ErrorWindow { get; set; }
-		public ButtonExit(Application application, ErrorWindow ErrorWindow)
-		{
-			this.application = application;
-			this.ErrorWindow = ErrorWindow;
-		}
-		public void Draw(string path, string path2)
+        public ButtonExit(Application application, ErrorWindow ErrorWindow)
+        {
+            this.application = application;
+            this.ErrorWindow = ErrorWindow;
+        }
+        public void Draw(string path, string path2)
 		{
 
 		}

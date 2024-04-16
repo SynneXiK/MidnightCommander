@@ -1,4 +1,5 @@
 ﻿using ConsoleApp7.PopUps;
+using ConsoleApp7.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,18 +60,18 @@ namespace ConsoleApp7.Buttons
 		{
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.BackgroundColor = ConsoleColor.Red;
-			path = TextLength(path);
-			path2 = TextLength(path2);
+			path = ButtonHelper.TextLength(path);
+			path2 = ButtonHelper.TextLength(path2);
 
-			DrawShell();
+			UIService.DrawButtonShell();
 
-			string empty = "";
+			
 			int top = 11;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│   MOVE Function".PadRight(18) + " │");
 			top++;
 			Console.SetCursorPosition(50, top);
-			Console.Write($"│{empty.PadRight(18)}│");
+			Console.Write($"│{string.Empty.PadRight(18)}│");
 			top++;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│ Move:".PadRight(18) + " │");
@@ -126,40 +127,11 @@ namespace ConsoleApp7.Buttons
 				if (Selected == 0)
 				{
 					Function(path, path2);
-					application.RemoveWindow();
 				}
 
-				else
-					application.RemoveWindow();
-
+				application.RemoveWindow();
 				Selected = 0;
 			}
-		}
-		public string TextLength(string input)
-		{
-			if (input.Length >= 18)
-				input = @"..\" + input.Substring(input.Length - 13, 13);
-
-			return input;
-		}
-		public void DrawShell()
-		{
-			string empty = "";
-			int top = 10;
-			Console.SetCursorPosition(50, top);
-			Console.Write("┌──────────────────┐"); // Tabulka 20x40
-			top++;
-
-
-			for (int i = 0; i < 11; i++)
-			{
-				Console.SetCursorPosition(50, top);
-				Console.Write($"│{empty.PadRight(18)}│");
-				top++;
-			}
-
-			Console.SetCursorPosition(50, top);
-			Console.Write("└──────────────────┘");
 		}
 	}
 }

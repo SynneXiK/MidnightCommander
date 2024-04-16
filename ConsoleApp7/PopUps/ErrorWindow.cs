@@ -36,13 +36,13 @@ namespace ConsoleApp7.PopUps
 			DrawShell();
 			
 
-			string empty = "";
+			
 			int top = 11;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│   Error Window".PadRight(Width) + " │");
 			top++;
 			Console.SetCursorPosition(50, top);
-			Console.Write($"│{empty.PadRight(Width)}│");
+			Console.Write($"│{string.Empty.PadRight(Width)}│");
 			top++;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│ Error:".PadRight(Width) + " │");
@@ -68,7 +68,7 @@ namespace ConsoleApp7.PopUps
 
 		public void DrawShell()
 		{
-			string empty = "";
+			
 			int top = 10;
 			Console.SetCursorPosition(50, top);
 			Console.Write("┌".PadRight(Width + 1, '─')+"┐"); // Tabulka 20x40
@@ -78,7 +78,7 @@ namespace ConsoleApp7.PopUps
 			for (int i = 0; i < 11; i++)
 			{
 				Console.SetCursorPosition(50, top);
-				Console.Write($"│{empty.PadRight(Width)}│");
+				Console.Write($"│{string.Empty.PadRight(Width)}│");
 				top++;
 			}
 

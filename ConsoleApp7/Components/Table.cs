@@ -8,6 +8,7 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleApp7.PopUps;
+using ConsoleApp7.Helpers;
 
 namespace ConsoleApp7.Components
 {
@@ -179,8 +180,7 @@ namespace ConsoleApp7.Components
                 Console.SetCursorPosition(this.Left, Top);
                 DrawLine(list[i].Name, list[i].Size, list[i].UpdateTime);
                 Top++;
-                Console.ForegroundColor = ConsoleColor.White;
-                Console.BackgroundColor = ConsoleColor.DarkBlue;
+                ColorHelper.DefaultBackground();
             }
             for (int i = list.Count + 1; i < this.Count + 1; i++) // Přepisování
             {
@@ -195,7 +195,7 @@ namespace ConsoleApp7.Components
         }
         public void DrawLine(string Name, long? Size, DateTime UpdateTime)
         {
-            if (Name.Length >= 37)
+            if (Name.Length >= 37) // viditelný limit
             {
                 Name = Name.Substring(0, 34)+"..";
             }
@@ -211,38 +211,39 @@ namespace ConsoleApp7.Components
             {
                 return "Folder";
             }
+
             if (input < 0)
             {
                 input *= -1;
             }
+
 			while (input > 1024)
 			{
 				input = input / 1024;
 				i++;
 			}
+
             if (Sizes[i] == Sizes[0] && input == null)
                 return "";
-
             else
-            return $"{input}{Sizes[i]}";
+                return $"{input}{Sizes[i]}";
 		}
 		public void DrawOutline() // Upravit na pouze jednu tabulku
 		{
             //└┘┼─┴├┤┬┌┐│
              
             Console.SetCursorPosition(this.Left-1, 0);
-			string none = "";
 			Console.WriteLine("┌─────────────────────────────────────┬──────┬─────────[X]─┐");
-			for (int i = 0; i < Count; i++) // 25 jako random číslo ngl
+			for (int i = 0; i < Count; i++)
 			{
                 Console.SetCursorPosition(this.Left - 1, i+1);
-				Console.WriteLine($"│{none.PadRight(37)}│{none.PadRight(6)}│{none.PadRight(13)}│");
+				Console.WriteLine($"│{string.Empty.PadRight(37)}│{string.Empty.PadRight(6)}│{string.Empty.PadRight(13)}│");
 			}
             Console.SetCursorPosition(this.Left - 1, Count + 1);
 			Console.WriteLine("├─────────────────────────────────────┴──────┴─────────────┤");
 			Console.SetCursorPosition(this.Left - 1, Count + 2);
 			// Mezera pro path
-			Console.WriteLine($"│{none.PadRight(58)}│");
+			Console.WriteLine($"│{string.Empty.PadRight(58)}│");
 			Console.SetCursorPosition(this.Left - 1, Count + 3);
 			Console.WriteLine("└──────────────────────────────────────────────────────────┘");
 		}
@@ -251,7 +252,7 @@ namespace ConsoleApp7.Components
             if (this.Left > 60)
                 return;
 
-            List<string> Functions = new List<string>() {"Help", "Menu", "View", "Edit", "Copy", "RenMove", "Mkdir", "Delete", "PullDn", "Quit "};
+            string[] Functions =  {"Help", "Menu", "View", "Edit", "Copy", "RenMove", "Mkdir", "Delete", "PullDn", "Quit "};
 			Console.SetCursorPosition(0, Console.WindowHeight-1);
             for (int i = 1; i < 11; i++)
             {
@@ -262,8 +263,7 @@ namespace ConsoleApp7.Components
 				Console.ForegroundColor = ConsoleColor.Black;
 				Console.Write($"{Functions[i - 1]}     ");
 			}
-			Console.BackgroundColor = ConsoleColor.DarkBlue;
-			Console.ForegroundColor = ConsoleColor.White;
+            ColorHelper.DefaultBackground();
 		}
         
 

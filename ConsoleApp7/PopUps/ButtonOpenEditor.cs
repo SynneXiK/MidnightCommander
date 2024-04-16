@@ -18,7 +18,7 @@ namespace ConsoleApp7.Buttons
 			this.ErrorWindow = ErrorWindow;
 		}
 
-		public void Function(string path)
+		public void Function(string path, string path2) // path2 jen aby to sedělo
 		{
 
 			if (File.Exists(path))
@@ -27,7 +27,7 @@ namespace ConsoleApp7.Buttons
 				application.AddWindow(new TextEditor.Editor(path, this.application));
 				Console.CursorVisible = true;
 			}
-			else if (!File.Exists(path))
+			else
 			{
 				this.application.AddWindow(ErrorWindow);
 				ErrorWindow.GetError("Not a file");
@@ -36,10 +36,13 @@ namespace ConsoleApp7.Buttons
 		}
 		public void HandleKey(ConsoleKeyInfo info, string path, string path2)
 		{
-			Function(path);
+			Function(path, "");
 		}
 
+        public void Draw(string path, string path2)
+        {
+            throw new NotImplementedException(); // není potřeba
+        }
 
-
-	}
+    }
 }

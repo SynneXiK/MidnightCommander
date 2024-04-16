@@ -1,4 +1,6 @@
 ﻿using ConsoleApp7.PopUps;
+using ConsoleApp7.Services;
+using ConsoleApp7.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -34,14 +36,11 @@ namespace ConsoleApp7.Buttons
 				Directory.Move(path, path2 + Value);
 				application.RemoveWindow();
 			}
-				
-
 			else if (File.Exists(path) && !File.Exists(path2 + Value))
 			{
 				File.Move(path, path2 + Value);
 				application.RemoveWindow();
 			}
-				
 			else
 			{
 				application.RemoveWindow();
@@ -56,17 +55,17 @@ namespace ConsoleApp7.Buttons
 		{
 			Console.ForegroundColor = ConsoleColor.White;
 			Console.BackgroundColor = ConsoleColor.Red;
-			path = TextLength(path);
+			path = ButtonHelper.TextLength(path);
 
-			DrawShell();
+			UIService.DrawButtonShell();
 
-			string empty = "";
+			
 			int top = 11;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│ RENAME Function".PadRight(18) + " │");
 			top++;
 			Console.SetCursorPosition(50, top);
-			Console.Write($"│{empty.PadRight(18)}│");
+			Console.Write($"│{string.Empty.PadRight(18)}│");
 			top++;
 			Console.SetCursorPosition(50, top);
 			Console.Write($"│ Rename:".PadRight(18) + " │");
@@ -142,33 +141,5 @@ namespace ConsoleApp7.Buttons
 				Value = Value.Remove(Value.Length - 1);
 
 		}
-		public string TextLength(string input)
-		{
-			if (input.Length >= 18)
-				input = @"..\" + input.Substring(input.Length - 13, 13);
-
-			return input;
-		}
-		public void DrawShell()
-		{
-			string empty = "";
-			int top = 10;
-			Console.SetCursorPosition(50, top);
-			Console.Write("┌──────────────────┐"); // Tabulka 20x40
-			top++;
-
-
-			for (int i = 0; i < 11; i++)
-			{
-				Console.SetCursorPosition(50, top);
-				Console.Write($"│{empty.PadRight(18)}│");
-				top++;
-			}
-
-			Console.SetCursorPosition(50, top);
-			Console.Write("└──────────────────┘");
-		}
-
-
 	}
 }

@@ -60,13 +60,13 @@ namespace ConsoleApp7.EditorPopUps
 
             DrawShell();
 
-            string empty = "";
+            
             int top = 11;
             Console.SetCursorPosition(40, top);
             Console.Write($"│ EXIT".PadRight(46) + " │");
             top++;
             Console.SetCursorPosition(40, top);
-            Console.Write($"│{empty.PadRight(46)}│");
+            Console.Write($"│{string.Empty.PadRight(46)}│");
             top++;
             Console.SetCursorPosition(40, top);
             Console.Write($"│ Do you want to save the file: ".PadRight(46) + " │");
@@ -138,7 +138,7 @@ namespace ConsoleApp7.EditorPopUps
 
         public void DrawShell()
         {
-            string empty = "";
+            
             int top = 10;
             Console.SetCursorPosition(40, top);
             Console.Write("┌──────────────────────────────────────────────┐"); // Tabulka 20x40
@@ -148,7 +148,7 @@ namespace ConsoleApp7.EditorPopUps
             for (int i = 0; i < 8; i++)
             {
                 Console.SetCursorPosition(40, top);
-                Console.Write($"│{empty.PadRight(46)}│");
+                Console.Write($"│{string.Empty.PadRight(46)}│");
                 top++;
             }
 

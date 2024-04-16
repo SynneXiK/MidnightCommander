@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp7.Buttons
 {
-	internal class ButtonFiller : ComponentButton
+	public class ButtonFiller : ComponentButton
 	{
 		public Application application { get; set; }
 
@@ -18,12 +18,11 @@ namespace ConsoleApp7.Buttons
 		{
 
 		}
+
 		public void Function(string path, string path2)
 		{
 
 		}
-
-		
 
 		public void HandleKey(ConsoleKeyInfo info, string path, string path2)
 		{
